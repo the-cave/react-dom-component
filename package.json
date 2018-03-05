@@ -1,20 +1,36 @@
 {
-  "name": "react-dom-component",
+  "name": "react-dom-hybrid",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/the-cave/react-dom-component.git"
+    "url": "git+https://github.com/the-cave/react-dom-hybrid.git"
   },
   "keywords": [],
   "author": "Sarun Rattanasiri <midnight_w@gmx.tw>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/the-cave/react-dom-component/issues"
+    "url": "https://github.com/the-cave/react-dom-hybrid/issues"
   },
-  "homepage": "https://github.com/the-cave/react-dom-component#readme"
+  "homepage": "https://github.com/the-cave/react-dom-hybrid#readme",
+  "dependencies": {
+    "lodash": "4",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "@types/react": "16",
+    "react": "16",
+    "recompose": "0",
+    "redux": "3",
+    "typescript": "^2.7.2"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "recompose": "0",
+    "redux": "3"
+  }
 }
