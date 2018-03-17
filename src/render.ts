@@ -7,7 +7,7 @@ import { default as uniq } from "lodash/fp/uniq";
 import { ComponentType as Component } from "react";
 import { Store } from "redux";
 import {
-  DuplicateClassNameException,
+  DuplicatedClassNameException,
   UnmarkedComponentException,
 } from "./exceptions";
 import {
@@ -65,7 +65,7 @@ export function renderFactory({ dispatch }: Store<any>) {
     }
     const duplicatedComponentList = filterDuplicated(compactedList);
     if (duplicatedComponentList.length > 0) {
-      throw new DuplicateClassNameException(duplicatedComponentList);
+      throw new DuplicatedClassNameException(duplicatedComponentList);
     }
     return function update() {
       for (

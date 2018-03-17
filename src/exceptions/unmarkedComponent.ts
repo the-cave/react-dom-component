@@ -1,5 +1,5 @@
-import { BaseException } from './base';
 import { ComponentType as Component } from "react";
+import { BaseException } from './base';
 
 export class UnmarkedComponentException extends BaseException {
   constructor(public readonly component: Component) {
