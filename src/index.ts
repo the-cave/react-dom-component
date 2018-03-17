@@ -1,29 +1,28 @@
 import { default as identity } from "lodash/fp/identity";
 import { ComponentType as Component } from "react";
 import {
-  Store,
   createStore,
 } from "redux";
 import { ElementCreator } from "./interface";
 import { mountComponentFactory } from "./mountComponent";
+import { metaKey, MountType } from "./internal";
+import {renderFactory} from './render';
 
-const staticKey = "__react-dom-hybrid_meta";
 export const mountDomComponent = mountComponentFactory(
-  staticKey,
-  "Dom",
+  metaKey,
+  MountType.Dom,
 );
 export const mountReactComponent = mountComponentFactory(
-  staticKey,
-  "React",
+  metaKey,
+  MountType.React,
 );
 
 export function createRenderer(
   document: ElementCreator,
-  provider?: Component,
 ) {
   const internalStore = createStore(identity);
 
   return {
-    render: null,
+    render: renderFactory(internalStore),
   };
 }
