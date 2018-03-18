@@ -32,7 +32,7 @@ export class CleaningHandler implements Handler {
       if (!delegateElement.contains(monitorPoint)) {
         // clean up
         ReactDOM.unmountComponentAtNode(mountPoint);
-        const classList = new ClassList(mountPoint);
+        const classList = new ClassList(monitorPoint);
         classList.remove(markerClass);
         cleanupList.push(mountInfo);
       }
