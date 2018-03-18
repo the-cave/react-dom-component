@@ -27,15 +27,19 @@ export function createRenderer(
   document: ElementCreator,
 ) {
   const internalStore = createStore(reducer);
+  const cleaningHandler = new CleaningHandler(
+    internalStore,
+  );
   return {
     render: renderFactory(
       new RenderingHandler(
         internalStore,
         document,
       ),
-      new CleaningHandler(
-        internalStore,
-      ),
+      cleaningHandler,
     ),
+    unmountAll() {
+      cleaningHandler.handle();
+    },
   };
 }

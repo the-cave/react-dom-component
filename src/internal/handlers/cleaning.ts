@@ -16,7 +16,7 @@ export class CleaningHandler implements Handler {
     );
   }
 
-  handle(delegateElement: DelegateElement) {
+  handle(delegateElement?: DelegateElement) {
     const mountList = this.mountList;
     const cleanupList: MountInfo[] = [];
     for (
@@ -29,7 +29,10 @@ export class CleaningHandler implements Handler {
         monitorPoint,
         mountPoint,
       } = mountInfo;
-      if (!delegateElement.contains(monitorPoint)) {
+      if (
+        (!delegateElement) || // unmountAll
+        (!delegateElement.contains(monitorPoint))
+      ) {
         // clean up
         ReactDOM.unmountComponentAtNode(mountPoint);
         const classList = new ClassList(monitorPoint);
