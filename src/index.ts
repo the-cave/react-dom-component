@@ -9,7 +9,7 @@ import {
   RenderingHandler,
   reducer,
 } from './internal';
-import { renderFactory } from './render';
+import { renderFactory } from './implementations/render';
 
 export * from './implementations/markers';
 
