@@ -7,7 +7,7 @@ import { ComponentType as Component } from 'react';
 import {
   DuplicatedClassNameException,
   UnmarkedComponentException,
-} from '../exceptions/index';
+} from '../exceptions';
 import { DelegateElement } from '../interface';
 import {
   ClassList,
@@ -16,7 +16,7 @@ import {
   getMeta,
   Handler,
   markerClass,
-} from '../internal/index';
+} from '../internal';
 
 const isMarkedComponent = compose(
   isString,

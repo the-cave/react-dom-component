@@ -1,7 +1,7 @@
 import { default as setStatic } from 'recompose/setStatic';
-import { IllegalClassNameException } from './exceptions';
-import { MountComponent } from './interface';
-import { ComponentMeta, MountType } from './internal';
+import { IllegalClassNameException } from '../exceptions';
+import { MountComponent } from '../interface';
+import { ComponentMeta, MountType } from '../internal';
 
 const classNamePattern = /^(?:-[_a-zA-Z]|[_a-zA-Z][-_a-zA-Z0-9])[-_a-zA-Z0-9]*$/;
 
