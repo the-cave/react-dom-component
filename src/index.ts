@@ -1,13 +1,15 @@
 import { ComponentType as Component } from 'react';
 import { createStore } from 'redux';
-import { ElementCreator } from './interface';
-import { renderFactory } from './render';
-import { DelegateElement } from './interface';
+import {
+  DelegateElement,
+  ElementCreator,
+} from './interface';
 import {
   CleaningHandler,
   RenderingHandler,
   reducer,
 } from './internal';
+import { renderFactory } from './render';
 
 export * from './markers';
 

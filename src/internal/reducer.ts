@@ -1,7 +1,10 @@
 import { default as difference } from 'lodash/fp/difference';
 import { default as omit } from 'lodash/fp/omit';
-import { COMPONENT_MOUNTED, COMPONENT_UNMOUNTED } from './constants';
-import { Reducer } from "redux";
+import { Reducer } from 'redux';
+import {
+  COMPONENT_MOUNTED,
+  COMPONENT_UNMOUNTED,
+} from './constants';
 
 const initialState = [];
 const omitActionType = omit(['type']);

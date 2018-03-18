@@ -1,10 +1,10 @@
-import { Store } from 'redux';
 import * as ReactDOM from 'react-dom';
+import { Store } from 'redux';
+import { componentUnmounted } from '../actions';
+import { ClassList } from '../classes';
+import { markerClass } from '../constants';
 import { Handler, MountInfo } from '../definitions';
 import { DelegateElement } from '../../interface';
-import { ClassList } from "../classes";
-import { componentUnmounted } from "../actions";
-import { markerClass } from "../constants";
 
 export class CleaningHandler implements Handler {
   private mountList: MountInfo[];
