@@ -1,10 +1,16 @@
+import * as React from 'react';
 import { ComponentType as Component } from "react";
+import * as ReactDOM from 'react-dom';
 import { Store } from "redux";
 import { Handler, MountType } from "../definitions";
 import { getMeta } from "../util";
+import { ElementCreator } from "../../interface";
 
 export class RenderingHandler implements Handler {
-  constructor(private readonly store: Store<any>) {
+  constructor(
+    private readonly store: Store<any>,
+    private readonly document: ElementCreator,
+  ) {
   }
 
   handle(component: Component, element: Element) {
@@ -19,9 +25,12 @@ export class RenderingHandler implements Handler {
 
   private handleReactMount(
     component: Component,
-    element: Element,
+    containerElement: Element,
   ) {
-
+    ReactDOM.render(
+      React.createElement(component),
+      containerElement,
+    );
   }
 
   private handleDomMount(

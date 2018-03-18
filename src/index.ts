@@ -14,7 +14,10 @@ export function createRenderer(
   const internalStore = createStore(identity);
   return {
     render: renderFactory(
-      new RenderingHandler(internalStore),
+      new RenderingHandler(
+        internalStore,
+        document,
+      ),
     ),
   };
 }
