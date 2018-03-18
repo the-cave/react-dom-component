@@ -1,27 +1,20 @@
 import { default as compose } from "lodash/fp/compose";
 import { default as find } from "lodash/fp/find";
-import { default as get } from "lodash/fp/get";
 import { default as intersectionWith } from "lodash/fp/intersectionWith";
 import { default as isString } from "lodash/fp/isString";
 import { default as uniq } from "lodash/fp/uniq";
 import { ComponentType as Component } from "react";
-import { Store } from "redux";
 import {
   DuplicatedClassNameException,
   UnmarkedComponentException,
 } from "./exceptions";
 import {
   ComponentMeta,
-  markerClass,
-  metaKey,
-  renderComponent,
-} from "./internal";
-
-const getMeta = get([metaKey]);
-const getClassName = compose(
-  get(['className']),
+  getClassName,
   getMeta,
-);
+  Handler,
+  markerClass,
+} from "./internal";
 
 const isMarkedComponent = compose(
   isString,
@@ -51,7 +44,7 @@ const filterDuplicated: ComponentListTransformer =
     componentList,
   );
 
-export function renderFactory({ dispatch }: Store<any>) {
+export function renderFactory(renderingHandler: Handler) {
   return function render(
     componentList: Component[],
     delegateElement: NodeSelector,
@@ -85,7 +78,7 @@ export function renderFactory({ dispatch }: Store<any>) {
           elementIndex++
         ) {
           const element = elementList.item(elementIndex);
-          dispatch(renderComponent(component, element));
+          renderingHandler.handle(component, element);
         }
       }
     };
