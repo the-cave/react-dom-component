@@ -1,14 +1,26 @@
-import { RENDER_COMPONENT } from './constants';
-import { ComponentType as Component } from 'react';
 import { AnyAction } from 'redux';
+import {
+  COMPONENT_MOUNTED,
+  COMPONENT_UNMOUNTED,
+} from './constants';
+import { MountInfo } from './definitions';
 
-export function renderComponent(
-  markedComponent: Component,
-  targetElement: Element,
+export function componentMounted(
+  mountPoint: Element,
+  monitorPoint: Element,
 ): AnyAction {
   return {
-    type: RENDER_COMPONENT,
-    component: markedComponent,
-    element: targetElement,
+    type: COMPONENT_MOUNTED,
+    mountPoint,
+    monitorPoint,
+  };
+}
+
+export function componentUnmounted(
+  cleanupList: MountInfo[],
+): AnyAction {
+  return {
+    type: COMPONENT_UNMOUNTED,
+    cleanupList,
   };
 }

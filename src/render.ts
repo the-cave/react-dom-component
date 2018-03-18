@@ -46,7 +46,10 @@ const filterDuplicated: ComponentListTransformer =
     componentList,
   );
 
-export function renderFactory(renderingHandler: Handler) {
+export function renderFactory(
+  renderingHandler: Handler,
+  cleaningHandler: Handler,
+) {
   return function render(
     componentList: Component[],
     delegateElement: DelegateElement,
@@ -63,6 +66,7 @@ export function renderFactory(renderingHandler: Handler) {
       throw new DuplicatedClassNameException(duplicatedComponentList);
     }
     return function update() {
+      cleaningHandler.handle(delegateElement);
       for (
         let componentIndex = 0;
         componentIndex < compactedList.length;

@@ -5,6 +5,7 @@ import { Store } from 'redux';
 import { Handler, MountType } from '../definitions';
 import { getMeta } from '../util';
 import { ElementCreator } from '../../interface';
+import { componentMounted } from "../actions";
 
 export class RenderingHandler implements Handler {
   constructor(
@@ -33,7 +34,12 @@ export class RenderingHandler implements Handler {
       React.createElement(component),
       mountPoint,
     );
-    // TODO: dispatch event to store
+    this.store.dispatch(
+      componentMounted(
+        mountPoint,
+        monitorPoint,
+      ),
+    );
   }
 
   private handleDomMount(
@@ -50,6 +56,11 @@ export class RenderingHandler implements Handler {
       ),
       mountPoint,
     );
-    // TODO: dispatch event to store
+    this.store.dispatch(
+      componentMounted(
+        mountPoint,
+        monitorPoint,
+      ),
+    );
   }
 }

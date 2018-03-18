@@ -11,3 +11,8 @@ export interface ComponentMeta {
 export interface Handler {
   handle: (...args: any[]) => void;
 }
+
+export interface MountInfo {
+  mountPoint: Element;
+  monitorPoint: Element;
+}
