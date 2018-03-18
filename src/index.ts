@@ -11,7 +11,7 @@ import {
 } from './internal';
 import { renderFactory } from './render';
 
-export * from './markers';
+export * from './implementations/markers';
 
 export function createRenderer(
   document: ElementCreator,
