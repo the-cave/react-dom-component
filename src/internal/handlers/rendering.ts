@@ -25,18 +25,31 @@ export class RenderingHandler implements Handler {
 
   private handleReactMount(
     component: Component,
-    containerElement: Element,
+    element: Element,
   ) {
+    const mountPoint = element;
+    const monitorPoint = mountPoint;
     ReactDOM.render(
       React.createElement(component),
-      containerElement,
+      mountPoint,
     );
+    // TODO: dispatch event to store
   }
 
   private handleDomMount(
     component: Component,
     element: Element,
   ) {
-
+    const mountPoint = this.document.createElement('div');
+    const monitorPoint = element;
+    ReactDOM.render(
+      React.createElement(
+        component,
+        { nativeElement: element } as any,
+        null,
+      ),
+      mountPoint,
+    );
+    // TODO: dispatch event to store
   }
 }
