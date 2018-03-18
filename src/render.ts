@@ -1,14 +1,14 @@
-import { default as compose } from "lodash/fp/compose";
-import { default as find } from "lodash/fp/find";
-import { default as intersectionWith } from "lodash/fp/intersectionWith";
-import { default as isString } from "lodash/fp/isString";
-import { default as uniq } from "lodash/fp/uniq";
-import { ComponentType as Component } from "react";
+import { default as compose } from 'lodash/fp/compose';
+import { default as find } from 'lodash/fp/find';
+import { default as intersectionWith } from 'lodash/fp/intersectionWith';
+import { default as isString } from 'lodash/fp/isString';
+import { default as uniq } from 'lodash/fp/uniq';
+import { ComponentType as Component } from 'react';
 import {
   DuplicatedClassNameException,
   UnmarkedComponentException,
-} from "./exceptions";
-import { DelegateElement } from "./interface";
+} from './exceptions';
+import { DelegateElement } from './interface';
 import {
   ClassList,
   ComponentMeta,
@@ -16,7 +16,7 @@ import {
   getMeta,
   Handler,
   markerClass,
-} from "./internal";
+} from './internal';
 
 const isMarkedComponent = compose(
   isString,

@@ -1,6 +1,6 @@
 import { RENDER_COMPONENT } from './constants';
-import { ComponentType as Component } from "react";
-import { AnyAction } from "redux";
+import { ComponentType as Component } from 'react';
+import { AnyAction } from 'redux';
 
 export function renderComponent(
   markedComponent: Component,

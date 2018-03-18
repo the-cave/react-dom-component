@@ -1,6 +1,6 @@
-import { default as compose } from "lodash/fp/compose";
-import { default as get } from "lodash/fp/get";
-import { default as isFunction } from "lodash/fp/isFunction";
+import { default as compose } from 'lodash/fp/compose';
+import { default as get } from 'lodash/fp/get';
+import { default as isFunction } from 'lodash/fp/isFunction';
 import { default as wrapClassList } from 'classlist';
 
 type ElementFeatureCheck = (element: Element) => boolean;

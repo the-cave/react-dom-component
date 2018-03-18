@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { ComponentType as Component } from "react";
+import { ComponentType as Component } from 'react';
 import * as ReactDOM from 'react-dom';
-import { Store } from "redux";
-import { Handler, MountType } from "../definitions";
-import { getMeta } from "../util";
-import { ElementCreator } from "../../interface";
+import { Store } from 'redux';
+import { Handler, MountType } from '../definitions';
+import { getMeta } from '../util';
+import { ElementCreator } from '../../interface';
 
 export class RenderingHandler implements Handler {
   constructor(

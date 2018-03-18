@@ -1,6 +1,6 @@
-import { ComponentType as Component } from "react";
-import { metaKey, MountType } from "./internal";
-import { mountComponentFactory } from "./mountComponent";
+import { ComponentType as Component } from 'react';
+import { metaKey, MountType } from './internal';
+import { mountComponentFactory } from './mountComponent';
 
 export const mountDomComponent = mountComponentFactory(
   metaKey,

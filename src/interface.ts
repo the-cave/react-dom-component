@@ -1,4 +1,4 @@
-import { ComponentType as Component } from "react";
+import { ComponentType as Component } from 'react';
 
 export type MountComponent = (
   containerClassName: string,
