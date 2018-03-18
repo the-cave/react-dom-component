@@ -8,7 +8,9 @@ import {
   DuplicatedClassNameException,
   UnmarkedComponentException,
 } from "./exceptions";
+import { DelegateElement } from "./interface";
 import {
+  ClassList,
   ComponentMeta,
   getClassName,
   getMeta,
@@ -47,7 +49,7 @@ const filterDuplicated: ComponentListTransformer =
 export function renderFactory(renderingHandler: Handler) {
   return function render(
     componentList: Component[],
-    delegateElement: NodeSelector,
+    delegateElement: DelegateElement,
   ) {
     const compactedList: Component[] = uniq(componentList);
     const unmarkedComponent: Component = findUnmarkedComponent(
@@ -78,6 +80,8 @@ export function renderFactory(renderingHandler: Handler) {
           elementIndex++
         ) {
           const element = elementList.item(elementIndex);
+          const classList = new ClassList(element);
+          classList.add(markerClass);
           renderingHandler.handle(component, element);
         }
       }

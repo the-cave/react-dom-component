@@ -9,3 +9,6 @@ export type MountComponent = (
 export interface ElementCreator {
   createElement: (tagName: string) => Element;
 }
+
+export interface DelegateElement extends Node, NodeSelector {
+}

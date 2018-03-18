@@ -3,6 +3,7 @@ import { ComponentType as Component } from "react";
 import { createStore } from "redux";
 import { ElementCreator } from "./interface";
 import { renderFactory } from './render';
+import { DelegateElement } from "./interface";
 import { RenderingHandler } from "./internal";
 
 export * from './markers';
